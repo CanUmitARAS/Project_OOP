@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_CoreLayout.cshtml";
+}
+
+@using Project_OOP.Entity
+@model List<Product>
+
+    <h1>Ürün sayfası</h1>
+
+    <table class= "table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Ürün Adı</th>>
+        <th>Fiyat</th>
+        <th>Stok</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductID</td>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+            <td>@item.Stock</td>
+            <td><a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-danger">Ürün Sil</a></td>
+            <td><a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-success">Ürün Sil</a></td>
+        </tr>
+
+    }
+    </table>
+
+    <a asp-controller="Product" asp-action="AddProduct" class="btn btn-primary"> Yeni Ürün Girişi</a>
+        
+
+
